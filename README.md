@@ -18,3 +18,12 @@ In code, it will look something like this:
 `Todo`
 
 
+
+
+# TODO's
+
+- add a GUI to customize bindings
+- make range of keyboard customizable
+- Add the ability to use customizable bindings or premade dicts
+   - Make sure customizable bindings are able to be saved (csv probably)
+
