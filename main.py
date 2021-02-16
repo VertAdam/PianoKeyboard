@@ -4,39 +4,73 @@
 
 ############## IMPORTS ##############
 import mido
+from midi_numbers import number_to_note, note_to_number
+from keyboard_inputs import PressKey, ReleaseKey
+import numpy as np
+import time
+from note_to_vkkey import binding_of_isaac_dict, get_vk_dict, get_vk_code
 
 ############# Class ###########
-class PianoFun:
+
+class PianoKeyboard:
     def __init__(self, input_port_name = None, output_port_name = None):
         if input_port_name == None:
             input_ports = mido.get_input_names()
             for n in range(len(input_ports)):
                 print(str(n+1)+": "+ input_ports[n])
             sig_num = input("Which number corresponds to the input you want?")
-            self.inport = mido.open_input(input_ports[int(sig_num) - 1])
+            self.inport_name = input_ports[int(sig_num) - 1]
         else:
-            self.inport = mido.open_input(input_port_name)
+            self.inport_name = input_port_name
 
         if output_port_name == None:
             output_ports= mido.get_output_names()
             for n in range(len(output_ports)):
                 print(str(n+1)+": "+output_ports[n])
             sig_num = input("Which number corresponds to the output you want?")
-            self.outport = mido.open_output(output_ports[int(sig_num) - 1])
+            self.outport_name = output_ports[int(sig_num)-1]
+        else:
+            self.outport_name = output_port_name
 
 
-    def play_note_n_higher(self, n = 12):
+    def start_keyboard(self):
         # Play same note inputted, but n notes higher. Default is one octave
-        with self.inport as inport:
+        inport = mido.open_input(self.inport_name)
+        outport = mido.open_output(self.outport_name)
+        prev_10_notes = [0]*10
+        with inport as inport:
             for msg in inport:
                 try:
-                    x = msg.note
+                    note = msg.note
                     print(msg)
-                    self.outport.send(mido.Message('note_on', note=msg.note + 12, velocity=msg.velocity))
-                except:
+                    # TEMP
+                    binding_dict = binding_of_isaac_dict()
+                    if note in binding_dict.keys():
+                        vk_code = binding_dict[note]
+
+                        # This means the note is being pressed
+                        if msg.velocity != 0:
+                            PressKey(vk_code)
+
+                        # This means the note is being released
+                        else:
+                            ReleaseKey(vk_code)
+
+                    prev_10_notes.append(note)
+                    prev_10_notes.pop(0)
+                    if np.sum(prev_10_notes)==96*10:
+                        print("Exiting Piano Keyboard...")
+                        inport.close()
+                        outport.close()
+                        return
+
+
+                except AttributeError:
                     continue
 
-pf = PianoFun("Digital Keyboard 0","Digital Keyboard 1")
+if __name__ =="__main__":
+    pk = PianoKeyboard("Digital Keyboard 0","Digital Keyboard 1")
+    pk.start_keyboard()
 
 
 x = 1
