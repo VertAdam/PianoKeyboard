@@ -62,6 +62,8 @@ def binding_gui():
 
         if event == "Save as Custom Binding":
             preset_name = sg.popup_get_text('What do you want to name this binding? (do not use any special characters)')
+            if preset_name == None:
+                continue
             binding_df = pd.DataFrame({"Midi #":list(values.keys())[1:],"Binding":list(values.values())[1:]})
 
             binding_df.to_csv(os.path.join("binding_csvs",preset_name+".csv"))
