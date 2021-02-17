@@ -171,14 +171,81 @@ def get_vk_code(key_name):
     dict = get_vk_dict()
     return dict[key_name]
 
+def basic_dict():
+    dict = {36: get_vk_code("0"),
+            37: get_vk_code("1"),
+            38: get_vk_code("2"),
+            39: get_vk_code("3"),
+            40: get_vk_code("4"),
+            41: get_vk_code("5"),
+            42: get_vk_code("6"),
+            43: get_vk_code("7"),
+            44: get_vk_code("8"),
+            45: get_vk_code("9"),
+            46: get_vk_code("10"),
+            47: get_vk_code("A"),
+            48: get_vk_code("B"),
+            49: get_vk_code("C"),
+            50: get_vk_code("D"),
+            51: get_vk_code("E"),
+            52: get_vk_code("F"),
+            53: get_vk_code("G"),
+            54: get_vk_code("H"),
+            55: get_vk_code("I"),
+            56: get_vk_code("J"),
+            57: get_vk_code("K"),
+            58: get_vk_code("L"),
+            59: get_vk_code("M"),
+            60: get_vk_code("N"),
+            61: get_vk_code("O"),
+            62: get_vk_code("P"),
+            63: get_vk_code("Q"),
+            64: get_vk_code("R"),
+            65: get_vk_code("S"),
+            66: get_vk_code("T"),
+            67: get_vk_code("U"),
+            68: get_vk_code("V"),
+            69: get_vk_code("W"),
+            70: get_vk_code("X"),
+            71: get_vk_code("Y"),
+            72: get_vk_code("SPACE"), # Spacebar
+            72: get_vk_code("LSHIFT"), # Left shift
+            74: get_vk_code("Return"), # Enter Key
+            75: get_vk_code("ESCAPE"), # Escape key
+            76: get_vk_code("TAB"),
+            77: get_vk_code("MENU"), # ALT key
+            78: get_vk_code("CAPITAL"), # Caps lock
+            79: get_vk_code("LEFT"),
+            80: get_vk_code("RIGHT"),
+            81: get_vk_code("UP"),
+            82: get_vk_code("DOWN")}
+    return dict
+
+
 def binding_of_isaac_dict():
     dict = {36: get_vk_code("RETURN"),
-            55:get_vk_code("A"),
-             57: get_vk_code("S"),
-             58: get_vk_code("W"),
-             59: get_vk_code("D"),
-             77:get_vk_code("LEFT"),
-             79: get_vk_code("DOWN"),
-             80: get_vk_code("UP"),
-             81: get_vk_code("RIGHT")}
+            37: get_vk_code("ESCAPE"),
+            53:get_vk_code("A"),
+            54: get_vk_code("Q"),
+            55: get_vk_code("S"),
+            56: get_vk_code("W"),
+            57: get_vk_code("D"),
+            58: get_vk_code("E"),
+            77:get_vk_code("LEFT"),
+            79: get_vk_code("DOWN"),
+            80: get_vk_code("UP"),
+            81: get_vk_code("RIGHT")}
     return dict
+
+def league_of_legends_dict():
+    dict = {63: get_vk_code("1"),
+            64: get_vk_code("LSHIFT"),
+            65: get_vk_code("Q"),
+            66: get_vk_code("A"),
+            67: get_vk_code("W"),
+            68: get_vk_code("D"),
+            69: get_vk_code("E"),
+            70: get_vk_code("F"),
+            71: get_vk_code("R"),
+            72: get_vk_code("2"),
+            }

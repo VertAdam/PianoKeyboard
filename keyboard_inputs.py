@@ -11,7 +11,7 @@ INPUT_MOUSE    = 0
 INPUT_KEYBOARD = 1
 INPUT_HARDWARE = 2
 
-KEYEVENTF_EXTENDEDKEY = 0x0001
+KEYEVENTF_EXTENDEDKEY = 0x0000
 KEYEVENTF_KEYUP       = 0x0002
 KEYEVENTF_UNICODE     = 0x0004
 KEYEVENTF_SCANCODE    = 0x0008
@@ -99,6 +99,6 @@ def AltTab():
     ReleaseKey(VK_MENU) # Alt~
 
 if __name__ == "__main__":
-    AltTab()
+    # AltTab()
 
-x = 1
+    x = 1

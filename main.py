@@ -33,7 +33,13 @@ class PianoKeyboard:
             self.outport_name = output_port_name
 
 
-    def start_keyboard(self):
+    def start_keyboard(self, dict):
+        # Details on dictionaries can be found as note_to_vkkey
+        # Current Dicts are:
+        #       basic_dict - All keys in alpha numeric order
+        #       binding_of_isaac_dict - for the binding of isaac
+        #       league_of_legends_dict - for league of legends
+
         # Play same note inputted, but n notes higher. Default is one octave
         inport = mido.open_input(self.inport_name)
         outport = mido.open_output(self.outport_name)
@@ -42,10 +48,12 @@ class PianoKeyboard:
             for msg in inport:
                 try:
                     note = msg.note
-                    print(msg)
+                    # print(msg)
                     # TEMP
                     binding_dict = binding_of_isaac_dict()
                     if note in binding_dict.keys():
+                        print(note)
+                        print(binding_dict[note])
                         vk_code = binding_dict[note]
 
                         # This means the note is being pressed
@@ -70,7 +78,8 @@ class PianoKeyboard:
 
 if __name__ =="__main__":
     pk = PianoKeyboard("Digital Keyboard 0","Digital Keyboard 1")
-    pk.start_keyboard()
+    pk.start_keyboard(1)
 
 
-x = 1
+
+    x = 1
