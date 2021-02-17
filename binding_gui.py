@@ -15,6 +15,10 @@ import PySimpleGUI as sg
 
 ############# Class ###########
 def binding_gui():
+
+
+    input_ports = mido.get_input_names()
+
     # Green & tan color scheme
     sg.ChangeLookAndFeel('GreenTan')
 
@@ -34,7 +38,7 @@ def binding_gui():
         cols.append([sg.Text('-' * 200, size=(800, 1))])
 
     layout = [[sg.Text('Bindings Editor', font=('Helvetica', 25), justification = 'center')],
-              [sg.Text('Preset Binding'), sg.Combo(preset_bindings_list,key="Preset Choice")],
+              [sg.Text('Preset Binding'), sg.Combo(preset_bindings_list,key="Preset Choice"), sg.Text("     ",size = (5,1)),sg.Text("MIDI Device"), sg.Combo(input_ports, default_value=input_ports[0], key = "Device")],
               [sg.Button('Apply')],
               [sg.Text('_' * 100, size=(800, 1))],
               [sg.Text('Bindings', font=('Helvetica', 15), justification='left')],
@@ -64,7 +68,7 @@ def binding_gui():
             preset_name = sg.popup_get_text('What do you want to name this binding? (do not use any special characters)')
             if preset_name == None:
                 continue
-            binding_df = pd.DataFrame({"Midi #":list(values.keys())[1:],"Binding":list(values.values())[1:]})
+            binding_df = pd.DataFrame({"Midi #":list(values.keys())[2:],"Binding":list(values.values())[2:]})
 
             binding_df.to_csv(os.path.join("binding_csvs",preset_name+".csv"))
             x = 1
@@ -75,8 +79,9 @@ def binding_gui():
 
         if event == "Use These Bindings":
             window.close()
+            device = values["Device"]
             del values['Preset Choice']
-            return values
+            return values, device
 
     window.close()
 

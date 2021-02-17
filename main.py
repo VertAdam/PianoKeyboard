@@ -18,26 +18,9 @@ class PianoKeyboard:
     def __init__(self, input_port_name = None, output_port_name = None):
         df = pd.read_csv(os.path.join("binding_csvs","Empty.csv"))
         self.binding_dict =dict(zip(list(df["Midi #"]), list("Binding")))
-        if input_port_name == None:
-            input_ports = mido.get_input_names()
-            for n in range(len(input_ports)):
-                print(str(n+1)+": "+ input_ports[n])
-            sig_num = input("Which number corresponds to the input you want?")
-            self.inport_name = input_ports[int(sig_num) - 1]
-        else:
-            self.inport_name = input_port_name
-
-        if output_port_name == None:
-            output_ports= mido.get_output_names()
-            for n in range(len(output_ports)):
-                print(str(n+1)+": "+output_ports[n])
-            sig_num = input("Which number corresponds to the output you want?")
-            self.outport_name = output_ports[int(sig_num)-1]
-        else:
-            self.outport_name = output_port_name
 
     def set_binding(self):
-        self.bindings_dict = binding_gui()
+        self.bindings_dict, self.inport_name = binding_gui()
 
     def startup(self):
         # Details on dictionaries can be found as note_to_vkkey
@@ -48,7 +31,6 @@ class PianoKeyboard:
 
         # Play same note inputted, but n notes higher. Default is one octave
         inport = mido.open_input(self.inport_name)
-        outport = mido.open_output(self.outport_name)
         prev_20_notes = [0]*20
         with inport as inport:
             for msg in inport:
