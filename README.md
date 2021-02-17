@@ -22,12 +22,13 @@ In code, it will look something like this:
 
 # TODO's
 
-- add a GUI to customize bindings
+- ~~add a GUI to customize bindings~~
 - make range of keyboard customizable
-- Add the ability to use customizable bindings or premade dicts
-   - Make sure customizable bindings are able to be saved (csv probably)
+- ~~Add the ability to use customizable bindings or premade dicts~~
+   - ~~Make sure customizable bindings are able to be saved (csv probably)~~
 - ~~Fix VK_KEYS arrow keys using the numpad~~
 - Add better documentation
     - Update the setup
     - add descriptions to functions
+- Add Device MIDI input device to GUI
 
