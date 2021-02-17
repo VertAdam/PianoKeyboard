@@ -8,12 +8,16 @@ from midi_numbers import number_to_note, note_to_number
 from keyboard_inputs import PressKey, ReleaseKey
 import numpy as np
 import time
-from note_to_vkkey import binding_of_isaac_dict
-
+from note_to_vkkey import win_keys
+from binding_gui import binding_gui
+import pandas as pd
+import os
 ############# Class ###########
 
 class PianoKeyboard:
     def __init__(self, input_port_name = None, output_port_name = None):
+        df = pd.read_csv(os.path.join("binding_csvs","Empty.csv"))
+        self.binding_dict =dict(zip(list(df["Midi #"]), list("Binding")))
         if input_port_name == None:
             input_ports = mido.get_input_names()
             for n in range(len(input_ports)):
@@ -32,8 +36,10 @@ class PianoKeyboard:
         else:
             self.outport_name = output_port_name
 
+    def set_binding(self):
+        self.bindings_dict = binding_gui()
 
-    def start_keyboard(self, dict):
+    def startup(self):
         # Details on dictionaries can be found as note_to_vkkey
         # Current Dicts are:
         #       basic_dict - All keys in alpha numeric order
@@ -43,44 +49,55 @@ class PianoKeyboard:
         # Play same note inputted, but n notes higher. Default is one octave
         inport = mido.open_input(self.inport_name)
         outport = mido.open_output(self.outport_name)
-        prev_10_notes = [0]*10
+        prev_20_notes = [0]*20
         with inport as inport:
             for msg in inport:
                 try:
                     note = msg.note
-                    # print(msg)
-                    # TEMP
-                    binding_dict = binding_of_isaac_dict()
+
+                    prev_20_notes.append(note)
+                    prev_20_notes.pop(0)
+                    if np.sum(prev_20_notes)==96*20:
+                        print("Exiting Piano Keyboard...")
+                        mid = mido.MidiFile('Windows_OS_-_Windows_Sounds_by_w3sp.mid')
+                        for msg in mid.play():
+                            outport.send(msg)
+                        time.sleep(2)
+                        inport.close()
+                        outport.close()
+                        return
+
+
+                    binding_dict = self.bindings_dict
                     if note in binding_dict.keys():
                         key = binding_dict[note]
 
+                        if key == None:
+                            continue
 
                         # This means the note is being pressed
+                        print(key)
                         if msg.velocity != 0:
                             print("Note:", number_to_note(note)[0], ", Octave:", number_to_note(note)[1],
                                   ", MIDI NOTE #:", note, ", Key Pressed:", key)
                             print("")
+
                             PressKey(key)
 
                         # This means the note is being released
                         else:
                             ReleaseKey(key)
 
-                    prev_10_notes.append(note)
-                    prev_10_notes.pop(0)
-                    if np.sum(prev_10_notes)==96*10:
-                        print("Exiting Piano Keyboard...")
-                        inport.close()
-                        outport.close()
-                        return
-
 
                 except AttributeError:
                     continue
 
+    def start_keyboard(self):
+        self.set_binding()
+        self.startup()
 if __name__ =="__main__":
     pk = PianoKeyboard("Digital Keyboard 0","Digital Keyboard 1")
-    pk.start_keyboard(1)
+    pk.start_keyboard()
 
 
 

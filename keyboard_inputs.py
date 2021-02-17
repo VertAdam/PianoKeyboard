@@ -40,7 +40,7 @@ class Input(ctypes.Structure):
 
 #Presses a key and holds it until explicitly called the releaseKey function.
 def PressKey(key=None):
-    if key is None:
+    if key == 'Empty':
         return
     assert key in key_dict, "The key({}) you're trying to press does not exist! Please check for any spelling errors.".format(key)
 
@@ -58,7 +58,7 @@ def PressKey(key=None):
 
 #Releases a key that was pressed using pressKey. NEVER FORGET TO USE THIS AFTER USING pressKey()
 def ReleaseKey(key=None):
-    if key is None:
+    if key == 'Empty':
         return
     assert key in key_dict, "The key({}) you're trying to release does not exists! Please check for any spelling errors.".format(key)
 

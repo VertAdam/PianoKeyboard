@@ -46,6 +46,10 @@ class PianoFun:
                     prev_10_notes.pop(0)
                     if np.sum(prev_10_notes)==96*10:
                         print("Exiting play notes " + str(n)+" higher...")
+                        mid = mido.MidiFile('Windows_OS_-_Windows_Sounds_by_w3sp.mid')
+                        for msg in mid.play():
+                            outport.send(msg)
+                        time.sleep(2)
                         inport.close()
                         outport.close()
                         return
@@ -71,6 +75,10 @@ class PianoFun:
                     prev_10_notes.pop(0)
                     if np.sum(prev_10_notes)==96*10:
                         print("Exiting print_note...")
+                        mid = mido.MidiFile('Windows_OS_-_Windows_Sounds_by_w3sp.mid')
+                        for msg in mid.play():
+                            outport.send(msg)
+                        time.sleep(2)
                         inport.close()
                         outport.close()
                         return
@@ -91,8 +99,8 @@ class PianoFun:
 
 if __name__ =="__main__":
     pf = PianoFun("Digital Keyboard 0","Digital Keyboard 1")
-    pf.play_note_n_higher(2)
-    # pf.play_note('C',1)
+    # pf.play_note_n_higher(2)
+    pf.play_note('C',1)
 
 
 x = 1

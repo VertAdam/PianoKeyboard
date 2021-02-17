@@ -151,57 +151,6 @@ win_keys= {
     'm' : 0x32,
     }
 
-def basic_dict():
-    dict = {36: "0",
-            37: "1",
-            38: "2",
-            39: "3",
-            40: "4",
-            41: "5",
-            42: "6",
-            43: "7",
-            44: "8",
-            45: "9",
-            46: "10",
-            47: "A",
-            48: "B",
-            49: "C",
-            50: "D",
-            51: "E",
-            52: "F",
-            53: "G",
-            54: "H",
-            55: "I",
-            56: "J",
-            57: "K",
-            58: "L",
-            59: "M",
-            60: "N",
-            61: "O",
-            62: "P",
-            63: "Q",
-            64: "R",
-            65: "S",
-            66: "T",
-            67: "U",
-            68: "V",
-            69: "W",
-            70: "X",
-            71: "Y",
-            72: "SPACEBAR", # Spacebar
-            72: "LSHIFT", # Left shift
-            74: "Return", # Enter Key
-            75: "ESC", # Escape key
-            76: "TAB",
-            77: "MENU", # ALT key
-            78: "CAPITAL", # Caps lock
-            79: "LEFT",
-            80: "RIGHT",
-            81: "UP",
-            82: "DOWN"}
-    return dict
-
-
 def binding_of_isaac_dict():
     # dict = {36: "RETURN",
     #         37: "ESCAPE",
