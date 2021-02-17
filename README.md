@@ -26,5 +26,5 @@ In code, it will look something like this:
 - make range of keyboard customizable
 - Add the ability to use customizable bindings or premade dicts
    - Make sure customizable bindings are able to be saved (csv probably)
-- Fix VK_KEYS arrow keys using the numpad
+- ~~Fix VK_KEYS arrow keys using the numpad~~
 

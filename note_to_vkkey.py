@@ -3,249 +3,240 @@
 # Adam Vert
 
 # VK Codes https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
-
-def get_vk_dict():
-    dict = {'LBUTTON': 0x01 ,#Left mouse button
-        'RBUTTON': 0x02 ,#Right mouse button
-        'MBUTTON': 0x04 ,#Middle mouse button (three-button mouse)
-        'XBUTTON1': 0x05 ,#X1 mouse button
-        'XBUTTON2': 0x06 ,#X2 mouse button
-        'BACK': 0x08 ,#BACKSPACE key
-        'TAB': 0x09 ,#TAB key
-        'CLEAR': 0x0C ,#CLEAR key
-        'RETURN': 0x0D ,#ENTER key
-        'SHIFT': 0x10 ,#SHIFT key
-        'CONTROL': 0x11 ,#CTRL key
-        'MENU': 0x12 ,#ALT key
-        'PAUSE': 0x13 ,#PAUSE key
-        'CAPITAL': 0x14 ,#CAPS LOCK key
-        'ESCAPE': 0x1B ,#ESC key
-        'SPACE': 0x20 ,#SPACEBAR
-        'PRIOR': 0x21 ,#PAGE UP key
-        'NEXT': 0x22 ,#PAGE DOWN key
-        'END': 0x23 ,#END key
-        'HOME': 0x24 ,#HOME key
-        'LEFT': 0x25 ,#LEFT ARROW key
-        'UP': 0x26 ,#UP ARROW key
-        'RIGHT': 0x27 ,#RIGHT ARROW key
-        'DOWN': 0x28 ,#DOWN ARROW key
-        'SELECT': 0x29 ,#SELECT key
-        'PRINT': 0x2A ,#PRINT key
-        'SNAPSHOT': 0x2C ,#PRINT SCREEN key
-        'INSERT': 0x2D ,#INS key
-        'DELETE': 0x2E ,#DEL key
-        'HELP': 0x2F ,#HELP key
-        '0': 0x30 ,#0 key
-        '1': 0x31 ,#1 key
-        '2': 0x32 ,#2 key
-        '3': 0x33 ,#3 key
-        '4': 0x34 ,#4 key
-        '5': 0x35 ,#5 key
-        '6': 0x36 ,#6 key
-        '7': 0x37 ,#7 key
-        '8': 0x38 ,#8 key
-        '9': 0x39 ,#9 key
-        'A': 0x41,
-        'B': 0x42,
-        'C': 0x43,
-        'D': 0x44,
-        'E': 0x45,
-        'F': 0x46,
-        'G': 0x47,
-        'H': 0x48,
-        'I': 0x49,
-        'J': 0x4A,
-        'K': 0x4B,
-        'L': 0x4C,
-        'M': 0x4D,
-        'N': 0x4E,
-        'O': 0x4F,
-        'P': 0x50,
-        'Q': 0x51,
-        'R': 0x52,
-        'S': 0x53,
-        'T': 0x54,
-        'U': 0x55,
-        'V': 0x56,
-        'W': 0x57,
-        'X': 0x58,
-        'Y': 0x59,
-        'Z': 0x5A,
-        'LWIN': 0x5B ,#Left Windows key (Natural keyboard)
-        'RWIN': 0x5C ,#Right Windows key (Natural keyboard)
-        'APPS': 0x5D ,#Applications key (Natural keyboard)
-        'SLEEP': 0x5F ,#Computer Sleep key
-        'NUMPAD0': 0x60 ,#Numeric keypad 0 key
-        'NUMPAD1': 0x61 ,#Numeric keypad 1 key
-        'NUMPAD2': 0x62 ,#Numeric keypad 2 key
-        'NUMPAD3': 0x63 ,#Numeric keypad 3 key
-        'NUMPAD4': 0x64 ,#Numeric keypad 4 key
-        'NUMPAD5': 0x65 ,#Numeric keypad 5 key
-        'NUMPAD6': 0x66 ,#Numeric keypad 6 key
-        'NUMPAD7': 0x67 ,#Numeric keypad 7 key
-        'NUMPAD8': 0x68 ,#Numeric keypad 8 key
-        'NUMPAD9': 0x69 ,#Numeric keypad 9 key
-        'MULTIPLY': 0x6A ,#Multiply key
-        'ADD': 0x6B ,#Add key
-        'SEPARATOR': 0x6C ,#Separator key
-        'SUBTRACT': 0x6D ,#Subtract key
-        'DECIMAL': 0x6E ,#Decimal key
-        'DIVIDE': 0x6F ,#Divide key
-        'F1': 0x70 ,#F1 key
-        'F2': 0x71 ,#F2 key
-        'F3': 0x72 ,#F3 key
-        'F4': 0x73 ,#F4 key
-        'F5': 0x74 ,#F5 key
-        'F6': 0x75 ,#F6 key
-        'F7': 0x76 ,#F7 key
-        'F8': 0x77 ,#F8 key
-        'F9': 0x78 ,#F9 key
-        'F10': 0x79 ,#F10 key
-        'F11': 0x7A ,#F11 key
-        'F12': 0x7B ,#F12 key
-        'F13': 0x7C ,#F13 key
-        'F14': 0x7D ,#F14 key
-        'F15': 0x7E ,#F15 key
-        'F16': 0x7F ,#F16 key
-        'F17': 0x80 ,#F17 key
-        'F18': 0x81 ,#F18 key
-        'F19': 0x82 ,#F19 key
-        'F20': 0x83 ,#F20 key
-        'F21': 0x84 ,#F21 key
-        'F22': 0x85 ,#F22 key
-        'F23': 0x86 ,#F23 key
-        'F24': 0x87 ,#F24 key
-        'NUMLOCK': 0x90 ,#NUM LOCK key
-        'SCROLL': 0x91 ,#SCROLL LOCK key
-        'LSHIFT': 0xA0 ,#Left SHIFT key
-        'RSHIFT': 0xA1 ,#Right SHIFT key
-        'LCONTROL': 0xA2 ,#Left CONTROL key
-        'RCONTROL': 0xA3 ,#Right CONTROL key
-        'LMENU': 0xA4 ,#Left MENU key
-        'RMENU': 0xA5 ,#Right MENU key
-        'BROWSER_BACK': 0xA6 ,#Browser Back key
-        'BROWSER_FORWARD': 0xA7 ,#Browser Forward key
-        'BROWSER_REFRESH': 0xA8 ,#Browser Refresh key
-        'BROWSER_STOP': 0xA9 ,#Browser Stop key
-        'BROWSER_SEARCH': 0xAA ,#Browser Search key
-        'BROWSER_FAVORITES': 0xAB ,#Browser Favorites key
-        'BROWSER_HOME': 0xAC ,#Browser Start and Home key
-        'VOLUME_MUTE': 0xAD ,#Volume Mute key
-        'VOLUME_DOWN': 0xAE ,#Volume Down key
-        'VOLUME_UP': 0xAF ,#Volume Up key
-        'MEDIA_NEXT_TRACK': 0xB0 ,#Next Track key
-        'MEDIA_PREV_TRACK': 0xB1 ,#Previous Track key
-        'MEDIA_STOP': 0xB2 ,#Stop Media key
-        'MEDIA_PLAY_PAUSE': 0xB3 ,#Play/Pause Media key
-        'LAUNCH_MAIL': 0xB4 ,#Start Mail key
-        'LAUNCH_MEDIA_SELECT': 0xB5 ,#Select Media key
-        'LAUNCH_APP1': 0xB6 ,#Start Application 1 key
-        'LAUNCH_APP2': 0xB7 ,#Start Application 2 key
-        'OEM_1': 0xBA ,#Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the ';:' key
-        'OEM_PLUS': 0xBB ,#For any country/region, the '+' key
-        'OEM_COMMA': 0xBC ,#For any country/region, the ',' key
-        'OEM_MINUS': 0xBD ,#For any country/region, the '-' key
-        'OEM_PERIOD': 0xBE ,#For any country/region, the '.' key
-        'OEM_2': 0xBF ,#Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '/?' key':
-        'OEM_3': 0xC0 ,#Used for miscellaneous characters; it can vary by keyboard.': For the US standard keyboard, the '`~' key
-        'OEM_4': 0xDB ,#Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '[{' key
-        'OEM_5': 0xDC ,#Used for miscellaneous characters; it can vary by keyboard.For the US standard keyboard, the '\|' key
-        'OEM_6': 0xDD ,#Used for miscellaneous characters; it can vary by keyboard.For the US standard keyboard, the ']}' key
-        'OEM_7': 0xDE ,#Used for miscellaneous characters; it can vary by keyboard.For the US standard keyboard, the 'single-quote/double-quote' key
-        'OEM_8': 0xDF ,#Used for miscellaneous characters; it can vary by keyboard.
-        'OEM_102': 0xE2 ,#Either the angle bracket key or the backslash key on the RT 102-key keyboard 0xE3-E4 OEM specific
-        'PROCESSKEY': 0xE5 ,#IME PROCESS key 0xE6': OEM specific ,#
-        'PACKET': 0xE7 ,#Used to pass Unicode characters as if they were keystrokes. The 'PACKET key is the low word of a 32-bit Virtual Key value used for non-keyboard input methods. For more information, see Remark in KEYBDINPUT, SendInput, WM_KEYDOWN, and WM_KEYUP ,#-
-        'ATTN': 0xF6 ,#Attn key
-        'CRSEL': 0xF7 ,#CrSel key
-        'EXSEL': 0xF8 ,#ExSel key
-        'EREOF': 0xF9 ,#Erase EOF key
-        'PLAY': 0xFA ,#Play key
-        'ZOOM': 0xFB ,#Zoom key
-        'NONAME': 0xFC ,#Reserved
-        'PA1': 0xFD ,#PA1 key
-        'OEM_CLEAR': 0xFE}
-    return dict
-
-def get_vk_code(key_name):
-    dict = get_vk_dict()
-    return dict[key_name]
+win_keys= {
+    'ESC' : 0x01,
+    '!' : 0x02,
+    '1' : 0x02,
+    '@' : 0x03,
+    '2' : 0x03,
+    '#' : 0x04,
+    '3' : 0x04,
+    '$' : 0x05,
+    '4' : 0x05,
+    '%' : 0x06,
+    '5' : 0x06,
+    '^' : 0x07,
+    '6' : 0x07,
+    '&' : 0x08,
+    '7' : 0x08,
+    '*' : 0x09,
+    '8' : 0x09,
+    '(' : 0x0A,
+    '9' : 0x0A,
+    ')' : 0x0B,
+    '0' : 0x0B,
+    '_' : 0x0C,
+    '-' : 0x0C,
+    '+' : 0x0D,
+    '=' : 0x0D,
+    'BKSP' : 0x0E,
+    'TAB' : 0x0F,
+    'Q' : 0x10,
+    'W' : 0x11,
+    'E' : 0x12,
+    'R' : 0x13,
+    'T' : 0x14,
+    'Y' : 0x15,
+    'U' : 0x16,
+    'I' : 0x17,
+    'O' : 0x18,
+    'P' : 0x19,
+    '{' : 0x1A,
+    '[' : 0x1A,
+    '}' : 0x1B,
+    ']' : 0x1B,
+    'ENTER' : 0x1C,
+    'CTRL' : 0x1D,
+    'A' : 0x1E,
+    'S' : 0x1F,
+    'D' : 0x20,
+    'F' : 0x21,
+    'G' : 0x22,
+    'H' : 0x23,
+    'J' : 0x24,
+    'K' : 0x25,
+    'L' : 0x26,
+    ':' : 0x27,
+    ';' : 0x27,
+    '"' : 0x28,
+    "'" : 0x28,
+    'TILDE' : 0x29,
+    'BACKTICK' : 0x29,
+    'LSHIFT' : 0x2A,
+    '|' : 0x2B,
+    'BSLASH' : 0x2B,
+    'Z' : 0x2C,
+    'X' : 0x2D,
+    'C' : 0x2E,
+    'V' : 0x2F,
+    'B' : 0x30,
+    'N' : 0x31,
+    'M' : 0x32,
+    '<' : 0x33,
+    ',' : 0x33,
+    '>' : 0x34,
+    '.' : 0x34,
+    '?' : 0x35,
+    '/' : 0x35,
+    'RSHIFT' : 0x36,
+    'PRTSC' : 0x37,
+    '*' : 0x37,
+    'ALT' : 0x38,
+    'SPACEBAR' : 0x39,
+    'CAPSLOCK' : 0x3A,
+    'F1' : 0x3B,
+    'F2' : 0x3C,
+    'F3' : 0x3D,
+    'F4' : 0x3E,
+    'F5' : 0x3F,
+    'F6' : 0x40,
+    'F7' : 0x41,
+    'F8' : 0x42,
+    'F9' : 0x43,
+    'F10' : 0x44,
+    'NUMLOCK' : 0x45,
+    'SCROLL_LOCK' : 0x46,
+    'HOME' : 0x47,
+    'NUM7' : 0x47,
+    'UP' : 0x48,
+    'NUM8' : 0x48,
+    'PGUP' : 0x49,
+    'NUM9' : 0x49,
+    'NUM-' : 0x4A,
+    'LEFT' : 0x4B,
+    'NUM4' : 0x4B,
+    'NUM5' : 0x4C,
+    'RIGHT' : 0x4D,
+    'NUM6' : 0x4D,
+    'NUM+' : 0x4E,
+    'END' : 0x4F,
+    'NUM1' : 0x4F,
+    'DOWN' : 0x50,
+    'NUM2' : 0x50,
+    'PGDN' : 0x51,
+    'NUM3' : 0x51,
+    'INS' : 0x52,
+    'NUM0' : 0x52,
+    'DEL' : 0x53,
+    'NUM.' : 0x53,
+    'F11' : 0x85,
+    'F12' : 0x86,
+    'q' : 0x10,
+    'w' : 0x11,
+    'e' : 0x12,
+    'r' : 0x13,
+    't' : 0x14,
+    'y' : 0x15,
+    'u' : 0x16,
+    'i' : 0x17,
+    'o' : 0x18,
+    'p' : 0x19,
+    'a' : 0x1E,
+    's' : 0x1F,
+    'd' : 0x20,
+    'f' : 0x21,
+    'g' : 0x22,
+    'h' : 0x23,
+    'j' : 0x24,
+    'k' : 0x25,
+    'l' : 0x26,
+    'z' : 0x2C,
+    'x' : 0x2D,
+    'c' : 0x2E,
+    'v' : 0x2F,
+    'b' : 0x30,
+    'n' : 0x31,
+    'm' : 0x32,
+    }
 
 def basic_dict():
-    dict = {36: get_vk_code("0"),
-            37: get_vk_code("1"),
-            38: get_vk_code("2"),
-            39: get_vk_code("3"),
-            40: get_vk_code("4"),
-            41: get_vk_code("5"),
-            42: get_vk_code("6"),
-            43: get_vk_code("7"),
-            44: get_vk_code("8"),
-            45: get_vk_code("9"),
-            46: get_vk_code("10"),
-            47: get_vk_code("A"),
-            48: get_vk_code("B"),
-            49: get_vk_code("C"),
-            50: get_vk_code("D"),
-            51: get_vk_code("E"),
-            52: get_vk_code("F"),
-            53: get_vk_code("G"),
-            54: get_vk_code("H"),
-            55: get_vk_code("I"),
-            56: get_vk_code("J"),
-            57: get_vk_code("K"),
-            58: get_vk_code("L"),
-            59: get_vk_code("M"),
-            60: get_vk_code("N"),
-            61: get_vk_code("O"),
-            62: get_vk_code("P"),
-            63: get_vk_code("Q"),
-            64: get_vk_code("R"),
-            65: get_vk_code("S"),
-            66: get_vk_code("T"),
-            67: get_vk_code("U"),
-            68: get_vk_code("V"),
-            69: get_vk_code("W"),
-            70: get_vk_code("X"),
-            71: get_vk_code("Y"),
-            72: get_vk_code("SPACE"), # Spacebar
-            72: get_vk_code("LSHIFT"), # Left shift
-            74: get_vk_code("Return"), # Enter Key
-            75: get_vk_code("ESCAPE"), # Escape key
-            76: get_vk_code("TAB"),
-            77: get_vk_code("MENU"), # ALT key
-            78: get_vk_code("CAPITAL"), # Caps lock
-            79: get_vk_code("LEFT"),
-            80: get_vk_code("RIGHT"),
-            81: get_vk_code("UP"),
-            82: get_vk_code("DOWN")}
+    dict = {36: "0",
+            37: "1",
+            38: "2",
+            39: "3",
+            40: "4",
+            41: "5",
+            42: "6",
+            43: "7",
+            44: "8",
+            45: "9",
+            46: "10",
+            47: "A",
+            48: "B",
+            49: "C",
+            50: "D",
+            51: "E",
+            52: "F",
+            53: "G",
+            54: "H",
+            55: "I",
+            56: "J",
+            57: "K",
+            58: "L",
+            59: "M",
+            60: "N",
+            61: "O",
+            62: "P",
+            63: "Q",
+            64: "R",
+            65: "S",
+            66: "T",
+            67: "U",
+            68: "V",
+            69: "W",
+            70: "X",
+            71: "Y",
+            72: "SPACEBAR", # Spacebar
+            72: "LSHIFT", # Left shift
+            74: "Return", # Enter Key
+            75: "ESC", # Escape key
+            76: "TAB",
+            77: "MENU", # ALT key
+            78: "CAPITAL", # Caps lock
+            79: "LEFT",
+            80: "RIGHT",
+            81: "UP",
+            82: "DOWN"}
     return dict
 
 
 def binding_of_isaac_dict():
-    dict = {36: get_vk_code("RETURN"),
-            37: get_vk_code("ESCAPE"),
-            53:get_vk_code("A"),
-            54: get_vk_code("Q"),
-            55: get_vk_code("S"),
-            56: get_vk_code("W"),
-            57: get_vk_code("D"),
-            58: get_vk_code("E"),
-            77:get_vk_code("LEFT"),
-            79: get_vk_code("DOWN"),
-            80: get_vk_code("UP"),
-            81: get_vk_code("RIGHT")}
+    # dict = {36: "RETURN",
+    #         37: "ESCAPE",
+    #         53:"A",
+    #         54: "Q",
+    #         55: "S",
+    #         56: "W",
+    #         57: "D",
+    #         58: "E",
+    #         77:"LEFT",
+    #         79: "DOWN",
+    #         80: "UP",
+    #         81: "RIGHT"}
+    dict = {36: "Return",
+            37: "ESC",
+            53:"A",
+            54: "Q",
+            55: "S",
+            56: "W",
+            57: "D",
+            58: "E",
+            77:"LEFT",
+            79: "DOWN",
+            80: "UP",
+            81: "RIGHT"}
     return dict
 
 def league_of_legends_dict():
-    dict = {63: get_vk_code("1"),
-            64: get_vk_code("LSHIFT"),
-            65: get_vk_code("Q"),
-            66: get_vk_code("A"),
-            67: get_vk_code("W"),
-            68: get_vk_code("D"),
-            69: get_vk_code("E"),
-            70: get_vk_code("F"),
-            71: get_vk_code("R"),
-            72: get_vk_code("2"),
+    dict = {63: "1",
+            64: "LSHIFT",
+            65: "Q",
+            66: "A",
+            67: "W",
+            68: "D",
+            69: "E",
+            70: "F",
+            71: "R",
+            72: "2",
             }
+    return dict

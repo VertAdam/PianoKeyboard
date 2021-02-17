@@ -8,7 +8,7 @@ from midi_numbers import number_to_note, note_to_number
 from keyboard_inputs import PressKey, ReleaseKey
 import numpy as np
 import time
-from note_to_vkkey import binding_of_isaac_dict, get_vk_dict, get_vk_code
+from note_to_vkkey import binding_of_isaac_dict, get_vk_code
 
 ############# Class ###########
 
@@ -52,17 +52,19 @@ class PianoKeyboard:
                     # TEMP
                     binding_dict = binding_of_isaac_dict()
                     if note in binding_dict.keys():
-                        print(note)
-                        print(binding_dict[note])
-                        vk_code = binding_dict[note]
+                        key = binding_dict[note]
+
 
                         # This means the note is being pressed
                         if msg.velocity != 0:
-                            PressKey(vk_code)
+                            print("Note:", number_to_note(note)[0], ", Octave:", number_to_note(note)[1],
+                                  ", MIDI NOTE #:", note, ", Key Pressed:", key)
+                            print("")
+                            PressKey(key)
 
                         # This means the note is being released
                         else:
-                            ReleaseKey(vk_code)
+                            ReleaseKey(key)
 
                     prev_10_notes.append(note)
                     prev_10_notes.pop(0)
