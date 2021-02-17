@@ -2,7 +2,9 @@
 
 # Adam Vert
 
-# VK Codes https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
+# Dict of all VK Codes
+
+
 win_keys= {
     'Empty':None,
     'ESC' : 0x01,
@@ -151,43 +153,3 @@ win_keys= {
     'm' : 0x32,
     }
 
-def binding_of_isaac_dict():
-    # dict = {36: "RETURN",
-    #         37: "ESCAPE",
-    #         53:"A",
-    #         54: "Q",
-    #         55: "S",
-    #         56: "W",
-    #         57: "D",
-    #         58: "E",
-    #         77:"LEFT",
-    #         79: "DOWN",
-    #         80: "UP",
-    #         81: "RIGHT"}
-    dict = {36: "Return",
-            37: "ESC",
-            53:"A",
-            54: "Q",
-            55: "S",
-            56: "W",
-            57: "D",
-            58: "E",
-            77:"LEFT",
-            79: "DOWN",
-            80: "UP",
-            81: "RIGHT"}
-    return dict
-
-def league_of_legends_dict():
-    dict = {63: "1",
-            64: "LSHIFT",
-            65: "Q",
-            66: "A",
-            67: "W",
-            68: "D",
-            69: "E",
-            70: "F",
-            71: "R",
-            72: "2",
-            }
-    return dict

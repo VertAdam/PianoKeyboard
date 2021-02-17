@@ -15,7 +15,11 @@ import os
 ############# Class ###########
 
 class PianoKeyboard:
-    def __init__(self, input_port_name = None, output_port_name = None):
+    """
+    This is the main script. Run this script and you should be good to go.
+    """
+
+    def __init__(self):
         df = pd.read_csv(os.path.join("binding_csvs","Empty.csv"))
         self.binding_dict =dict(zip(list(df["Midi #"]), list("Binding")))
 
@@ -78,7 +82,7 @@ class PianoKeyboard:
         self.set_binding()
         self.startup()
 if __name__ =="__main__":
-    pk = PianoKeyboard("Digital Keyboard 0","Digital Keyboard 1")
+    pk = PianoKeyboard()
     pk.start_keyboard()
 
 

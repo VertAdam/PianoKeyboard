@@ -9,6 +9,11 @@ from midi_numbers import number_to_note, note_to_number
 import numpy as np
 import time
 ############# Class ###########
+
+"""
+This is just some fun scripts I made to practice using the MIDO package
+"""
+
 class PianoFun:
     def __init__(self, input_port_name = None, output_port_name = None):
         if input_port_name == None:

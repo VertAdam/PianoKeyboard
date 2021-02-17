@@ -10,7 +10,7 @@ from midi_numbers import number_to_note, note_to_number
 from keyboard_inputs import PressKey, ReleaseKey
 import numpy as np
 import time
-from note_to_vkkey import binding_of_isaac_dict, win_keys
+from note_to_vkkey import win_keys
 import PySimpleGUI as sg
 
 ############# Class ###########
@@ -18,7 +18,7 @@ def binding_gui():
 
 
     input_ports = mido.get_input_names()
-
+    output_ports = mido.get_output_names()
     # Green & tan color scheme
     sg.ChangeLookAndFeel('GreenTan')
 
@@ -38,8 +38,8 @@ def binding_gui():
         cols.append([sg.Text('-' * 200, size=(800, 1))])
 
     layout = [[sg.Text('Bindings Editor', font=('Helvetica', 25), justification = 'center')],
-              [sg.Text('Preset Binding'), sg.Combo(preset_bindings_list,key="Preset Choice"), sg.Text("     ",size = (5,1)),sg.Text("MIDI Device"), sg.Combo(input_ports, default_value=input_ports[0], key = "Device")],
-              [sg.Button('Apply')],
+              [sg.Text('Preset Binding'), sg.Combo(preset_bindings_list,default_value="Empty",key="Preset Choice"), sg.Text("     ",size = (10,1)),sg.Text("MIDI Input Device   "), sg.Combo(input_ports, default_value=input_ports[0], key = "Device Input", size = (20,1))],
+              [sg.Button('Apply'), sg.Text("     ",size = (36,1)), sg.Text("MIDI Output Device", justification='right'), sg.Combo(output_ports, default_value=output_ports[0], key = "Device Output", size = (20,1))],
               [sg.Text('_' * 100, size=(800, 1))],
               [sg.Text('Bindings', font=('Helvetica', 15), justification='left')],
               [sg.Text('(Key1, Octave1)', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|", font=('Helvetica', 15),size = (5,1),justification='center'),sg.Text('Midi#', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|", font=('Helvetica', 15),size = (5,1),justification='center'), sg.Text("Binding", font=('Helvetica', 15),size = (20,1),justification = 'center')],
