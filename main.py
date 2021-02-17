@@ -24,7 +24,7 @@ class PianoKeyboard:
         self.binding_dict =dict(zip(list(df["Midi #"]), list("Binding")))
 
     def set_binding(self):
-        self.bindings_dict, self.inport_name = binding_gui()
+        self.bindings_dict, self.inport_name, self.outport_name = binding_gui()
 
     def startup(self):
         # Details on dictionaries can be found as note_to_vkkey
@@ -35,15 +35,16 @@ class PianoKeyboard:
 
         # Play same note inputted, but n notes higher. Default is one octave
         inport = mido.open_input(self.inport_name)
-        prev_20_notes = [0]*20
+        outport = mido.open_output(self.outport_name)
+        prev_10_notes = [0]*10
         with inport as inport:
             for msg in inport:
                 try:
                     note = msg.note
 
-                    prev_20_notes.append(note)
-                    prev_20_notes.pop(0)
-                    if np.sum(prev_20_notes)==96*20:
+                    prev_10_notes.append(note)
+                    prev_10_notes.pop(0)
+                    if np.sum(prev_10_notes)==96*10:
                         print("Exiting Piano Keyboard...")
                         mid = mido.MidiFile('Windows_OS_-_Windows_Sounds_by_w3sp.mid')
                         for msg in mid.play():

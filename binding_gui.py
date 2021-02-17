@@ -79,9 +79,10 @@ def binding_gui():
 
         if event == "Use These Bindings":
             window.close()
-            device = values["Device"]
-            del values['Preset Choice']
-            return values, device
+            inport_device = values["Device Input"]
+            outport_device = values["Device Output"]
+            del values['Preset Choice'], values["Device Input"], values["Device Output"]
+            return values, inport_device, outport_device
 
     window.close()
 
