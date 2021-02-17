@@ -15,12 +15,12 @@ import PySimpleGUI as sg
 
 ############# Class ###########
 def binding_gui():
+    sg.ChangeLookAndFeel('Light Grey 1')
 
 
     input_ports = mido.get_input_names()
     output_ports = mido.get_output_names()
     # Green & tan color scheme
-    sg.ChangeLookAndFeel('GreenTan')
 
     sg.SetOptions(text_justification='left')
     sg.SetOptions(element_size=(800,800))
