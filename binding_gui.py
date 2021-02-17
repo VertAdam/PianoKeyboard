@@ -34,16 +34,16 @@ def binding_gui():
     cols = []
     sorted_keys = list(pd.read_excel("Sorted_vkkey_codes.xlsx")["Key"])
     for n in range(min_midi_num,max_midi_num+1):
-        cols.append([sg.Text(number_to_note(n),size=(18,1), justification='center'), sg.Text("|",size=(6,1), justification='center'),sg.Text(n,size=(18,1), justification='center'),sg.Text("|",size=(6,1), justification='center'), sg.Combo(sorted_keys,size=(25,1), default_value='Empty',key=n)])
-        cols.append([sg.Text('-' * 200, size=(800, 1))])
+        cols.append([sg.Text(number_to_note(n),size=(18,1), justification='center'), sg.Text("|",size=(6,1),text_color="blue", justification='center'),sg.Text(n,size=(18,1), justification='center'),sg.Text("|",text_color="blue",size=(6,1), justification='center'), sg.Combo(sorted_keys,size=(25,1), default_value='Empty',key=n)])
+        cols.append([sg.Text('-' * 200, size=(800, 1),text_color="blue")])
 
     layout = [[sg.Text('Bindings Editor', font=('Helvetica', 25), justification = 'center')],
               [sg.Text('Preset Binding'), sg.Combo(preset_bindings_list,default_value="Empty",key="Preset Choice"), sg.Text("     ",size = (10,1)),sg.Text("MIDI Input Device   "), sg.Combo(input_ports, default_value=input_ports[0], key = "Device Input", size = (20,1))],
               [sg.Button('Apply'), sg.Text("     ",size = (36,1)), sg.Text("MIDI Output Device", justification='right'), sg.Combo(output_ports, default_value=output_ports[0], key = "Device Output", size = (20,1))],
               [sg.Text('_' * 100, size=(800, 1))],
               [sg.Text('Bindings', font=('Helvetica', 15), justification='left')],
-              [sg.Text('(Key1, Octave1)', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|", font=('Helvetica', 15),size = (5,1),justification='center'),sg.Text('Midi#', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|", font=('Helvetica', 15),size = (5,1),justification='center'), sg.Text("Binding", font=('Helvetica', 15),size = (20,1),justification = 'center')],
-              [sg.Text('-' * 200, size=(800, 1))],
+              [sg.Text('(Key1, Octave1)', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|",text_color="blue", font=('Helvetica', 15),size = (5,1),justification='center'),sg.Text('Midi#', font=('Helvetica', 15), size = (15,1), justification='center'),sg.Text("|",text_color="blue", font=('Helvetica', 15),size = (5,1),justification='center'), sg.Text("Binding", font=('Helvetica', 15),size = (20,1),justification = 'center')],
+              [sg.Text('-' * 200, size=(800, 1),text_color="blue")],
               [sg.Column(cols, scrollable=True, vertical_scroll_only= True,size= (800,450))],
               [sg.Text('_' * 100, size=(800, 1))],
               [sg.Button('Save as Custom Binding')],
