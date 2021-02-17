@@ -27,4 +27,7 @@ In code, it will look something like this:
 - Add the ability to use customizable bindings or premade dicts
    - Make sure customizable bindings are able to be saved (csv probably)
 - ~~Fix VK_KEYS arrow keys using the numpad~~
+- Add better documentation
+    - Update the setup
+    - add descriptions to functions
 

@@ -8,7 +8,7 @@ from midi_numbers import number_to_note, note_to_number
 from keyboard_inputs import PressKey, ReleaseKey
 import numpy as np
 import time
-from note_to_vkkey import binding_of_isaac_dict, get_vk_code
+from note_to_vkkey import binding_of_isaac_dict
 
 ############# Class ###########
 

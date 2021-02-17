@@ -4,6 +4,7 @@
 
 # VK Codes https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
 win_keys= {
+    'Empty':None,
     'ESC' : 0x01,
     '!' : 0x02,
     '1' : 0x02,
@@ -60,6 +61,7 @@ win_keys= {
     ';' : 0x27,
     '"' : 0x28,
     "'" : 0x28,
+    " '" : 0x28,
     'TILDE' : 0x29,
     'BACKTICK' : 0x29,
     'LSHIFT' : 0x2A,
