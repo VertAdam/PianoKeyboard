@@ -52,7 +52,7 @@ def binding_gui():
     col = [[sg.Text('col Row 1', text_color='white', background_color='blue')],
            [sg.Text('col Row 2', text_color='white', background_color='blue'), sg.Input('col input 1')],
            [sg.Text('col Row 3', text_color='white', background_color='blue'), sg.Input('col input 2')]]
-    window = sg.Window('Machine Learning Front End', layout, font=("Helvetica", 12),size=(800,800))
+    window = sg.Window('Binding Editor', layout, font=("Helvetica", 12),size=(800,800))
 
 
     while True:  # Event Loop
