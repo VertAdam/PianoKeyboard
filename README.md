@@ -7,17 +7,21 @@ This is built on the back off the python package mido which utilizes rtmidi for 
 
 I am currently using Python 3.9 on windows and have not tested if a different version/Operating systems will cause any problems.
 
-To get this going
-1. plug in your MIDI Device
-2. Download this package
-3. Run the PianoFun class and select your input/output ports
-4. activate the PianoKeyboard method
+To get this going should be very simple.
+1. Plug in your MIDI device
+2. Make sure all packages used in main.py are installed
+3. run main.py
 
-In code, it will look something like this:
+You should then get an image of the GUI that looks like this:
 
-`Todo`
+### insert image of gui *** 
+
+There are a few custom bindings already made, but if you want to create your own simply choose the bindings you want for each note and then press "Save as custom binding". Now this binding will be easily accessible whenever you run the script again.
+
+Once all the bindings you want are selected, press "Use These Bindings". Now the keys you play will perform the binding set to it. Enjoy!
 
 
+### insert GIF of it being used ***
 
 
 # TODO's
@@ -30,5 +34,5 @@ In code, it will look something like this:
 - Add better documentation
     - Update the setup
     - add descriptions to functions
-- Add Device MIDI input device to GUI
+- ~~Add Device MIDI input device to GUI~~
 
