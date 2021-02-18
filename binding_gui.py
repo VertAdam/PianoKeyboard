@@ -20,6 +20,9 @@ def binding_gui():
 
     input_ports = mido.get_input_names()
     output_ports = mido.get_output_names()
+
+    if len(input_ports) == 0:
+        raise BrokenPipeError("No MIDI Devices Found")
     # Green & tan color scheme
 
     sg.SetOptions(text_justification='left')
