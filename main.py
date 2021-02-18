@@ -57,7 +57,7 @@ class PianoKeyboard:
 
                     binding_dict = self.bindings_dict
                     if note in binding_dict.keys():
-                        key = binding_dict[note]
+                        key = str(binding_dict[note])
 
                         if key == None:
                             continue

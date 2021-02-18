@@ -65,7 +65,7 @@ def binding_gui():
             preset_bin = list(values.values())[0]
             preset_df = pd.read_csv(os.path.join("binding_csvs", preset_bin+".csv"))
             for n in range(min_midi_num, max_midi_num + 1):
-                window[n].update(preset_df["Binding"].loc[preset_df["Midi #"] == n].values[0])
+                window[n].update(preset_df["Binding"].loc[preset_df["Midi #"].astype(str) == str(n)].values[0])
 
         if event == "Save as Custom Binding":
             preset_name = sg.popup_get_text('What do you want to name this binding? (do not use any special characters)')

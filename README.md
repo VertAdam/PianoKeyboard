@@ -37,54 +37,97 @@ There are three premade bindings as the moment
 #### 1. Empty
 This is the default binding setting. This has no binds meaning all keys will do nothing.
 
-### 2. RACECAR
-This can be used to test that everythings working. If you play the major scale with these bindings it should spell out
+### 2. Hello Github
+This ist just a fun script that spells out
 
-`RACECAR RACECAR` 
+`hello github welcome to pianokeyboard!` 
+
+![Binding Editor Screenshot](assets\Hello Github Layout.png)
 
 | Midi # |  Binding |
 |:------:|:--------:|
-|   60   |     R    |
-|   62   |     A    |
+|   36   |     H    |
+|   38   |     E    |
+|   40   |     L    |
+|   41   |     L    |
+|   43   |     O    |
+|   45   | SPACEBAR |
+|   47   |     G    |
+|   48   |     I    |
+|   50   |     T    |
+|   52   |     H    |
+|   53   |     U    |
+|   55   |     B    |
+|   57   | SPACEBAR |
+|   59   |     W    |
+|   60   |     E    |
+|   62   |     L    |
 |   64   |     C    |
-|   65   |     E    |
-|   67   |     C    |
-|   69   |     A    |
-|   71   |     R    |
-| 72     | SPACEBAR |
+|   65   |     O    |
+|   67   |     M    |
+|   69   |     E    |
+|   71   | SPACEBAR |
+|   72   |     T    |
+|   74   |     O    |
+|   76   | SPACEBAR |
+|   77   |     P    |
+|   79   |     I    |
+|   81   |     A    |
+|   83   |     N    |
+|   84   |     O    |
+|   85   |  LSHIFT  |
+|   86   |     K    |
+|   87   |     1    |
+|   88   |     E    |
+|   89   |     Y    |
+|   91   |     B    |
+|   93   |     O    |
+|   94   |     A    |
+|   95   |     R    |
+|   96   |     D    |
 ** Add gif of it being used **
 
 ### 3. league_of_legends
 This is used for playing League of Legends, the bindings are:
+![Binding Editor Screenshot](assets\League of Legends Layout.png)
 
 | Midi # |  Binding |
 |:------:|:--------:|
-|   60   |     R    |
-|   62   |     A    |
-|   64   |     C    |
-|   65   |     E    |
-|   67   |     C    |
-|   69   |     A    |
+|   36   |    ESC   |
+|   48   |     B    |
+|   64   | SPACEBAR |
+|   65   |     Q    |
+|   66   |     D    |
+|   67   |     W    |
+|   68   |     F    |
+|   69   |     E    |
+|   70   |    1     |
 |   71   |     R    |
-| 72     | SPACEBAR |
+|   72   |     2    |
 
 *** Add picture of keyboard with bindings overlaid ***
 
 ### 4. Binding of Isaac
 This is used for playing the steam game Binding of Isaac, the bindings are:
 
-| Midi # |  Binding |
-|:------:|:--------:|
-|   60   |     R    |
-|   62   |     A    |
-|   64   |     C    |
-|   65   |     E    |
-|   67   |     C    |
-|   69   |     A    |
-|   71   |     R    |
-| 72     | SPACEBAR |
+![Binding Editor Screenshot](assets\Binding of Isaac Layout.png)
 
-*** Add picture of keyboard with bindings overlaid ***
+| Midi # | Binding |
+|--------|---------|
+| 36     | ENTER   |
+| 37     | ESC     |
+| 53     | A       |
+| 54     | Q       |
+| 55     | S       |
+| 56     | W       |
+| 57     | D       |
+| 58     | E       |
+| 77     | LEFT    |
+| 79     | DOWN    |
+| 80     | UP      |
+| 81     | RIGHT   |
+
+![Binding of Isaac gif](assets\binding_gif.gif)
 
 
 
