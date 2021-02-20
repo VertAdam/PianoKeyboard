@@ -1,15 +1,17 @@
 Adam Vert
 
+Demo: [https://youtu.be/isl14TeM6GY](https://youtu.be/isl14TeM6GY)
+
 # PianoKeyboard
 Use your digital piano as your computer keyboard!
-Simply plug in your digital piano (must have a midi output) to your computer and start typing! 
+Simply plug in your digital piano (must have a midi output) to your computer, choose your bindings and start typing! 
 
 ...or whatever you call it when its on a Piano.
 
 Enjoy!
 
 
-### insert GIF of it being used ***
+![a](assets/hello%20github%20gif.gif)
 
 ## Setup
 This is built on the back off the python package mido which utilizes rtmidi for the port setup.
@@ -19,7 +21,7 @@ I am currently using Python 3.9 on windows and have not tested if a different ve
 To get this going should be very simple.
 1. Plug in your MIDI device
 2. Make sure all packages used in main.py are installed
-3. run `main.py`
+3. run `python main.py`
 
 You should then get an image of the GUI that looks like this:
 
@@ -30,8 +32,13 @@ There are a few custom bindings already made (Discussed Below), but if you want 
 
 Once all the bindings you want are selected, press "Use These Bindings". Now the keys you play will perform the binding set to it. Enjoy!
 
+## Ending the Script
 
-# Premade Bindings
+To end the script you can exit out of the function you ran in your command line but if you want a more fun and nostalgic ending you can also press the note #96 key 5 times on the keyboard andn outro sound will play out of your MIDI device and terminate the script.
+
+For an example, check out this link: [https://youtu.be/isl14TeM6GY?t=153](https://youtu.be/isl14TeM6GY?t=153)
+
+## Premade Bindings
 There are three premade bindings as the moment
 
 #### 1. Empty
@@ -85,7 +92,6 @@ This ist just a fun script that spells out
 |   94   |     A    |
 |   95   |     R    |
 |   96   |     D    |
-** Add gif of it being used **
 
 ### 3. league_of_legends
 This is used for playing League of Legends, the bindings are:
@@ -104,8 +110,6 @@ This is used for playing League of Legends, the bindings are:
 |   70   |    1     |
 |   71   |     R    |
 |   72   |     2    |
-
-*** Add picture of keyboard with bindings overlaid ***
 
 ### 4. Binding of Isaac
 This is used for playing the steam game Binding of Isaac, the bindings are:
@@ -132,14 +136,7 @@ This is used for playing the steam game Binding of Isaac, the bindings are:
 
 
 # TODO's
-
-- ~~add a GUI to customize bindings~~
 - make range of keyboard customizable
-- ~~Add the ability to use customizable bindings or premade dicts~~
-   - ~~Make sure customizable bindings are able to be saved (csv probably)~~
-- ~~Fix VK_KEYS arrow keys using the numpad~~
-- Add better documentation
-    - Update the setup
-    - add descriptions to functions
-- ~~Add Device MIDI input device to GUI~~
+- Add demo to the league of legends part
+- Add documentation to actual code
 
