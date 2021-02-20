@@ -25,7 +25,7 @@ To get this going should be very simple.
 
 You should then get an image of the GUI that looks like this:
 
-![Binding Editor Screenshot](assets/GUI screenshot.png)
+![Binding Editor Screenshot](assets/GUI%20screenshot.png)
 
 
 There are a few custom bindings already made (Discussed Below), but if you want to create your own simply choose the bindings you want for each note and then press "Save as custom binding". Now this binding will be easily accessible whenever you run the script again.
@@ -49,7 +49,7 @@ This ist just a fun script that spells out
 
 `hello github welcome to pianokeyboard!` 
 
-![Binding Editor Screenshot](assets/Hello Github Layout.png)
+![Binding Editor Screenshot](assets/Hello%20Github%20Layout.png)
 
 | Midi # |  Binding |
 |:------:|:--------:|
@@ -114,7 +114,7 @@ This is used for playing League of Legends, the bindings are:
 ### 4. Binding of Isaac
 This is used for playing the steam game Binding of Isaac, the bindings are:
 
-![Binding Editor Screenshot](assets/Binding of Isaac Layout.png)
+![Binding Editor Screenshot](assets/Binding%20of%20Isaac%20Layout.png)
 
 | Midi # | Binding |
 |--------|---------|
