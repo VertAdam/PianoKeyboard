@@ -41,7 +41,7 @@ For an example, check out this link: [https://youtu.be/isl14TeM6GY?t=153](https:
 ## Premade Bindings
 There are three premade bindings as the moment
 
-#### 1. Empty
+### 1. Empty
 This is the default binding setting. This has no binds meaning all keys will do nothing.
 
 ### 2. Hello Github
